@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import TodoItem from "./TodoItem";
+import AddTodo from './AddTodo'
 
 const Todos = () => {
     const [todoState, setTodoState] = useState([
@@ -39,6 +40,7 @@ const Todos = () => {
 
   return (
     <Fragment>
+        <AddTodo />
         {todoState.map(todo => {
           return <TodoItem
           todoes={todo}
