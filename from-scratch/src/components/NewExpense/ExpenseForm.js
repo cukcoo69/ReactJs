@@ -5,45 +5,23 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [oldState, newState] = useState({
-  //     enteredTitle: '',
-  //     enteredAmount: '',
-  //     enteredDate: ''
-  // })
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    // console.log(event.target.value);
-    // newState({
-    //     ...oldState,
-    //     enteredTitle: event.target.value
-    // });
-    // newState((prevState) => {
-    //     return { ...prevState, enteredTitle: event.target.value };
-    // })
   };
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    // console.log(event.target.value);
-    // newState({
-    //     ...oldState,
-    //     enteredTitle: event.target.value
-    // });
   };
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    // console.log(event.target.value);
-    // newState({
-    //     ...oldState,
-    //     enteredTitle: event.target.value
-    // });
   };
 
+  // After add expenseData to the array expenses, we changed stage to empty state
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     // console.log(expenseData);
@@ -86,6 +64,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add expense</button>
       </div>
     </form>
